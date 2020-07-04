@@ -4,6 +4,7 @@ import com.yg.ClinicFromScratch.models.Doctor;
 import com.yg.ClinicFromScratch.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
 import java.util.*;
@@ -14,6 +15,12 @@ public class DoctorServiceImpl implements DoctorService{
 
     @Autowired
     private DoctorRepository doctorRepository;
+
+    private RestTemplate restTemplate;
+
+    public DoctorServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
 
     @Override
