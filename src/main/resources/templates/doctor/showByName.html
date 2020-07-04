@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Doctors By Speciality</title>
+</head>
+<body>
+<!--/*@thymesVar id="doctor" type="com.yg.ClinicFromScratch.models.Doctor"*/-->
+<div align="center">
+    <h1>Doctors By Name </h1>
+    <h2 th:each="doc : ${doctor}" th:text="${doc.name}"> Name</h2>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>DutyDays</th>
+            <th>DutyTime</th>
+            <th>Speciality</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="doc : ${doctor}">
+            <td th:text="${doc.doctorID}">334</td>
+            <td th:text="${doc.phone}">Tasty Goodnees 3</td>
+            <td th:text="${doc.address}">Tasty Goodnees 3</td>
+            <td th:text="${doc.dutydays}">Tasty Goodnees 3</td>
+            <td th:text="${doc.dutytime}">Tasty Goodnees 3</td>
+            <td th:text="${doc.speciality}">Tasty Goodnees 3</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

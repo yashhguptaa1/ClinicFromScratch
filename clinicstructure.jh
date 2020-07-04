@@ -1,0 +1,133 @@
+entity Doctor {
+	doctorID Long
+    name String
+    phone String
+    address String
+    specialityID Long
+    
+}
+
+entity Login{
+	doctorID Long
+    password String
+}
+
+// first Patient registers 
+//using create new Patient api
+//on Patient entity
+//and using patientID generated
+//and doctorId that is publically available
+//register on Booking 
+entity Patient {
+	patientID Long,
+	name String,
+    phone String,
+    address String,
+    dob String,
+    bloodType String,
+    
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity ReceptionBooking {
+	bookingID Long,
+    doctorID Long,
+    patientID Long,
+    symptomID Long,
+    bookDate String,
+    bookTime String
+}
+
+entity Speciality {
+	specialityID Long,
+    doctorID Long,
+    speciality String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity ClinicRecord {
+	recordID Long,
+    bookingID Long,
+    diseaseID Long,
+    medicineID Long,
+	description String,
+    startDate Instant,
+    endDate Instant,
+    price Integer,
+
+}
+
+/**
+ * The Employee entity.
+ */
+entity Medicine {
+	/**
+	* The firstname attribute.
+	*/
+	medicineID Long,
+	description String,
+    medicinePrice Long
+}
+
+entity Disease {
+	diseaseID String,
+	description String,
+	treatementPrice Long
+}
+
+entity AllBookings
+{
+	bookings Long,
+    time Long
+}
+
+
+
+relationship OneToOne {
+	Doctor{doctorID} to Login
+}
+
+relationship OneToMany {
+	
+    Doctor{doctorID} to ReceptionBooking
+}
+
+relationship OneToOne {
+	Patient{patientID} to ReceptionBooking
+}
+
+relationship OneToOne {
+	Speciality{specialityID} to Doctor
+  }
+
+
+relationship OneToMany {
+ClinicRecord to Medicine
+ClinicRecord to Disease
+}
+
+relationship OneToOne {
+ReceptionBooking to ClinicRecord
+}
+
+relationship OneToOne {
+Login to AllBookings
+}
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

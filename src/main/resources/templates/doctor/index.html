@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Doctors</title>
+</head>
+<body>
+<div align="center">
+    <h1>List of Doctors</h1>
+    <a href="/doctor/new">Register New Doctor</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>DutyDays</th>
+            <th>DutyTime</th>
+            <th>Speciality</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="doc : ${doctorList}">
+            <td th:text="${doc.doctorID}">ID</td>
+            <td th:text="${doc.name}">Name</td>
+            <td th:text="${doc.phone}">Phone</td>
+            <td th:text="${doc.address}">Address</td>
+            <td th:text="${doc.dutydays}">DutyDays</td>
+            <td th:text="${doc.dutytime}">DutyTime</td>
+            <td th:text="${doc.speciality}">Speciality</td>
+            <td><a th:href="@{/doctor/edit/{id}(id=${doc.doctorID})}" class="btn btn-default">Edit</a>
+                <a th:href="@{/doctor/delete/{id}(id=${doc.doctorID})}" class="btn btn-default">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
