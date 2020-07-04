@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>All Doctors</title>
+    <title>DoctorsList</title>
 </head>
 <body>
 <div align="center">
-    <h1>List of Doctors</h1>
-    <a href="/doctor/new">Register New Doctor</a>
+    <h1>List of Doctors By Symptoms They Treat</h1>
+    <h2 th:each="doc : ${doctorList}" th:text="${doc.symptoms}"> Name</h2>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
@@ -36,8 +36,7 @@
             <td th:text="${doc.speciality}">Speciality</td>
             <td th:text="${doc.symptoms}">Symptoms</td>
             <td th:text="${doc.consultationfee}">ConsultationFee</td>
-            <td><a th:href="@{/doctor/edit/{id}(id=${doc.doctorID})}" class="btn btn-default">Edit</a>
-                <a th:href="@{/doctor/delete/{id}(id=${doc.doctorID})}" class="btn btn-default">Delete</a>
+            <td><a th:href="@{/doctor/book/{id}(id=${doc.doctorID})}" class="btn btn-default">Book</a>
             </td>
         </tr>
         </tbody>

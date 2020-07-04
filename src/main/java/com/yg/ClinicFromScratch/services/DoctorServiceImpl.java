@@ -40,4 +40,19 @@ public class DoctorServiceImpl implements DoctorService{
 
        doctorRepository.deleteById(id);
     }
+
+    @Override
+    public List<Doctor> getDoctorBySpeciality(String speciality) {
+        return doctorRepository.findBySpeciality(speciality);
+    }
+
+    @Override
+    public List<Doctor> getDoctorByName(String name) {
+        return doctorRepository.findByName(name);
+    }
+
+    @Override
+    public List<Doctor> getDoctorBySymptoms(String symptoms) {
+        return doctorRepository.findBySymptomsContainingIgnoreCase(symptoms);
+    }
 }

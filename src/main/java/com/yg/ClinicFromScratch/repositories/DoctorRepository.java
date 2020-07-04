@@ -7,5 +7,13 @@ import java.util.*;
 
 public interface DoctorRepository extends JpaRepository<Doctor,Long> {
 
+    //custom queries
+    List<Doctor> findBySpeciality(String speciality);
+
+    List<Doctor> findByName(String name);
+
+    List<Doctor> findBySymptomsContainingIgnoreCase(String symptoms);
+
+
 
 }

@@ -16,6 +16,12 @@ public class DoctorController {
         this.doctorService = doctorService;
     }
 
+    @RequestMapping("/patient/index")
+    public String getPatientIndexPage(Model model)
+    {
+        return "patient/index";
+    }
+
     @GetMapping("/doctor/index")
     public String getAllDoctors(Model model) {
 
@@ -54,5 +60,29 @@ public class DoctorController {
         return "redirect:/doctor/index";
 
     }
+
+    @GetMapping("/doctor/{name}")
+    public String getDoctorByName(@PathVariable("name") String name,Model model) {
+
+        List<Doctor>doctorList=doctorService.getDoctorByName(name);
+        model.addAttribute("doctorList",doctorList);
+        return "doctor/showByName";
+    }
+
+    @GetMapping("/doctor/{speciality}")
+    public String getDoctorBySpeciality(@PathVariable("speciality") String speciality,Model model) {
+
+        List<Doctor>doctorList=doctorService.getDoctorBySpeciality(speciality);
+        model.addAttribute("doctorList",doctorList);
+        return "doctor/showBySpeciality";
+    }
+    @GetMapping("/doctor/{symptoms}")
+    public String getDoctorBySymptoms(@PathVariable("symptoms") String symptoms,Model model) {
+
+        List<Doctor>doctorList=doctorService.getDoctorBySymptoms(symptoms);
+        model.addAttribute("doctorList",doctorList);
+        return "doctor/showBySymptoms";
+    }
+
 
 }

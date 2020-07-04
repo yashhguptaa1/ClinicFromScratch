@@ -13,7 +13,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class Doctor {
 
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     private Long doctorID;
 
@@ -25,28 +24,29 @@ public class Doctor {
     private String dutydays;
     private String dutytime;
 
-    //private String symptoms;
     private String speciality;
+    private String symptoms;
 
-    //private Integer consultatitonfee;
+    private Integer consultationfee;
 
    // @OneToMany(cascade = CascadeType.ALL,mappedBy = "doctor")
     //private Set<Appointment> appointment=new HashSet<>();
 
-    public Doctor(String name, String phone, String address, String dutydays, String dutytime, String speciality) {
+
+    public Doctor(String name, String phone, String address, String dutydays, String dutytime, String speciality, String symptoms, Integer consultationfee) {
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.dutydays = dutydays;
         this.dutytime = dutytime;
         this.speciality = speciality;
+        this.symptoms = symptoms;
+        this.consultationfee = consultationfee;
     }
 
-    public Doctor(Long doctorID, String name, String phone, String address, String dutydays, String dutytime, String speciality) {
-        this(name,phone,address, dutydays, dutytime,speciality);
+    public Doctor(Long doctorID, String name, String phone, String address, String dutydays, String dutytime, String speciality, String symptoms, Integer consultationfee) {
+        this(name,phone,address,dutydays,dutytime,speciality,symptoms,consultationfee);
         this.doctorID = doctorID;
 
     }
-
-
 }

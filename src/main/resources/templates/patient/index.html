@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Patients</title>
+</head>
+<body>
+<div align="center">
+    <a href="/patient/new">Register New Patient</a>
+</div>
+<div align="center">
+    <h2>Search by</h2>
+    <br />
+    <form action="#" th:object="${doctor}" th:action="@{/doctor/{name}}"
+          method="get">
+
+        <table border="0" cellpadding="10">
+
+            <tr>
+                <td>Doctor Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit">Search</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div align="center">
+    <h2>Search by Speciality</h2>
+    <br />
+    <form action="#" th:object="${doctor}" th:action="@{/doctor/{speciality}}"
+          method="get">
+
+    <table border="0" cellpadding="10">
+
+            <tr>
+                <td>Doctor Speciality:</td>
+                <td><input type="text" th:field="*{speciality}" /></td>
+            </tr>
+
+        <tr>
+            <td colspan="2"><button type="submit">Search</button> </td>
+        </tr>
+        </table>
+    </form>
+</div>
+
+<div align="center">
+    <h2>Search by</h2>
+    <br />
+    <form action="#" th:object="${doctor}" th:action="@{/doctor/{symptoms}}"
+          method="get">
+
+
+    <table border="0" cellpadding="10">
+
+            <tr>
+                <td>Symptoms Treated By Doctor</td>
+                <td><input type="text" th:field="*{symptoms}" /></td>
+            </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Search</button> </td>
+        </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

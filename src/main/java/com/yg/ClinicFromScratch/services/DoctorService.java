@@ -6,6 +6,12 @@ import java.util.*;
 
 public interface DoctorService {
 
+    List<Doctor> getDoctorBySpeciality(String speciality);
+
+    List<Doctor> getDoctorByName(String name);
+
+    List<Doctor> getDoctorBySymptoms(String symptoms);
+
 
     //ALL CRUD OPERATIONS
     List<Doctor>getAll();
