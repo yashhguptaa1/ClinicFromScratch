@@ -29,8 +29,8 @@ public class Doctor {
 
     private Integer consultationfee;
 
-   // @OneToMany(cascade = CascadeType.ALL,mappedBy = "doctor")
-    //private Set<Appointment> appointment=new HashSet<>();
+    //@OneToMany(cascade = CascadeType.ALL,mappedBy = "doctor")
+    //private Set<Book> bookings=new HashSet<>();
 
 
     public Doctor(String name, String phone, String address, String dutydays, String dutytime, String speciality, String symptoms, Integer consultationfee) {

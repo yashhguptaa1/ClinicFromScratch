@@ -62,4 +62,20 @@ public class DoctorController {
         doctorService.deleteById(id);
     }
 
-}
+
+    @GetMapping("/doctor/spec/{speciality}")
+    public List<Doctor> getAllDoctorsBySpec(@PathVariable String speciality ) {
+        return doctorService.getDoctorBySpeciality(speciality);
+    }
+
+    @GetMapping("/doctor/name/{name}")
+    public List<Doctor> getAllDoctorsByName(@PathVariable String name) {
+        return doctorService.getDoctorByName(name);
+    }
+
+    @GetMapping("/doctor/symptom/{symptom}")
+    public List<Doctor> getAllDoctorsBySymptoms(@PathVariable String symptom) {
+        return doctorService.getDoctorBySymptoms(symptom);
+    }
+
+    }

@@ -16,13 +16,6 @@ public class DoctorServiceImpl implements DoctorService{
     @Autowired
     private DoctorRepository doctorRepository;
 
-    private RestTemplate restTemplate;
-
-    public DoctorServiceImpl(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
-
     @Override
     public List<Doctor>getAll()
     {
@@ -55,7 +48,7 @@ public class DoctorServiceImpl implements DoctorService{
 
     @Override
     public List<Doctor> getDoctorByName(String name) {
-        return doctorRepository.findByName(name);
+        return doctorRepository.findByNameContainingIgnoreCase(name);
     }
 
     @Override
