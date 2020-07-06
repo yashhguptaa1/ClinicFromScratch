@@ -67,4 +67,13 @@ public class BookController {
     }
 
 
+    /*@PostMapping("/book/{docid}/{patid}")
+    public void addNewBookByDocPat(@RequestBody Book book,@PathVariable Long docid,@PathVariable Long patid)
+    {
+        book=new Book(docid,patid,"4/5/20");
+        bookService.save(book);
+    }*/
+
+
+
 }
