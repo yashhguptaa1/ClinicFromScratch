@@ -47,9 +47,12 @@ class News extends Component {
 */
   render() {
     return (
-    <ul>
-        {this.renderItems()}
-    </ul>
+      <div>
+        <div>
+          {this.renderItems()}
+        </div>
+        
+    </div>
     );
   }
 }
