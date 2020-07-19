@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
+@CrossOrigin
 public class DoctorController {
 
     @Autowired
@@ -23,7 +24,7 @@ public class DoctorController {
         return doctorService.getAll();
     }
 
-    @GetMapping("/doctor/{id}")
+    @GetMapping("/doctor/viewDoctorById")
     public ResponseEntity<Doctor>getById(@PathVariable Long id)
     {
         try {
@@ -36,10 +37,19 @@ public class DoctorController {
         }
     }
 
-    @PostMapping("/doctor/new")
+    @PostMapping("/doctor/registerDoctor")
     public void addNewDoctor(@RequestBody Doctor doctor)
     {
-        doctorService.save(doctor);
+        /*if(doctorService.getById(doctor.getDoctorID())!=null)
+        {
+            return new ResponseEntity<>("Doctor with id: "+doctor.getDoctorID()+" already exists",HttpStatus.CONFLICT);
+        }
+        */
+            doctorService.save(doctor);
+           // Doctor addedDoc=doctorService.getById(doctor.getDoctorID());
+
+           // return new ResponseEntity<>("Doctor with id: "+addedDoc.getDoctorID()+" created successfully",HttpStatus.CREATED);
+
     }
 
     @PutMapping("/doctor/{id}")
